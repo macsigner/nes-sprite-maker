@@ -1,0 +1,27 @@
+/**
+ * sprite bem module
+ */
+
+.sprite {
+    --c1: blue;
+    --c2: red;
+    --c3: purple;
+    --c4: green;
+
+    display: flex;
+    justify-content: center;
+    margin: 4rem 0;
+
+    svg {
+        transform: scale(10);
+        background-color: red;
+        transform-origin: 50% 0;
+    }
+
+    &__inner {
+        display: flex;
+        align-items: start;
+        aspect-ratio: 1 / 10;
+        background-color: green;
+    }
+}

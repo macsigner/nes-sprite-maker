@@ -7,7 +7,7 @@ class NesSpriteMaker {
 
         for(let i = 1; i <= 4; i++) {
             const labels = nesColorPalette.colors.map(c => {
-                return `<label><input type="radio" name="c${i}"><span class="color" style="--c: ${c}">${c}</span></label>`;
+                return `<label class="color-label" style="--c: ${c}"><input type="radio" name="c${i}"><span class="color-label__inner">${c}</span></label>`;
             }).join('');
 
             html += `<div class="palette-picker__color">${labels}</div>`

@@ -1,59 +1,8 @@
-*,
-::before,
-::after {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
+/**
+ * main import file.
+ */
 
-:root {
-    --side-margin: 2rem;
-}
-
-html {
-    font-size: 62.5%;
-}
-
-body {
-    font: 1.8rem/1.6 sans-serif;
-}
-
-main {
-    width: calc(100% - 2 * var(--side-margin));
-    max-width: 120rem;
-    margin: 0 auto;
-}
-
-img,
-svg {
-    vertical-align: middle;
-}
-
-.sprite {
-    --c1: blue;
-    --c2: red;
-    --c3: purple;
-    --c4: green;
-
-    display: flex;
-    justify-content: center;
-    margin: 4rem 0;
-
-    svg {
-        transform: scale(10);
-        background-color: red;
-        transform-origin: 50% 0;
-    }
-
-    &__inner {
-        display: flex;
-        align-items: start;
-        aspect-ratio: 1 / 10;
-        background-color: green;
-    }
-}
-
-.palette-picker {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(10px, 1fr));
-}
+@use 'base';
+@use 'modules/palette_picker';
+@use 'modules/sprite';
+@use 'modules/color_label';

@@ -1,0 +1,49 @@
+/**
+ * color-label bem module
+ */
+
+.color-label {
+    display: flex;
+    position: relative;
+    justify-content: end;
+    align-items: start;
+    width: 100% !important;
+    margin-bottom: 1rem;
+    border: 1px solid black;
+    background-color: var(--c);
+
+    &:has(:checked) {
+        outline: .6rem solid var(--pico-primary-focus);
+        outline-offset: -.6rem
+    }
+
+    &__inner {
+        display: block;
+        width: 4rem;
+        height: 4rem;
+        aspect-ratio: 1;
+        padding: .3rem 1rem;
+        text-indent: -9999em;
+        color: black;
+        font-family: monospace;
+
+
+        @container (min-width: 16rem) {
+            width: auto;
+            height: auto;
+            margin-bottom: var(--gap);
+            text-indent: 0;
+            aspect-ratio: auto;
+            border: none;
+            background-color: white;
+        }
+    }
+
+    [type='radio'] {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+    }
+}

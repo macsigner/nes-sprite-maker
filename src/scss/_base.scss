@@ -1,0 +1,35 @@
+/**
+ * base stylings
+ */
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --side-margin: 2rem;
+    --gap: 1rem;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font: 1.8rem/1.6 sans-serif;
+}
+
+main {
+    width: calc(100% - 2 * var(--side-margin));
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+img,
+svg {
+    vertical-align: middle;
+}
