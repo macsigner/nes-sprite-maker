@@ -19,24 +19,13 @@
 
     &__inner {
         display: block;
-        width: 4rem;
-        height: 4rem;
+        width: 100%;
         aspect-ratio: 1;
         padding: .3rem 1rem;
         text-indent: -9999em;
         color: black;
         font-family: monospace;
-
-
-        @container (min-width: 16rem) {
-            width: auto;
-            height: auto;
-            margin-bottom: var(--gap);
-            text-indent: 0;
-            aspect-ratio: auto;
-            border: none;
-            background-color: white;
-        }
+        font-size: 0;
     }
 
     [type='radio'] {
