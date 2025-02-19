@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="/vite.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Vite App</title>
+    <script type="module" src="/src/main.js" defer></script>
+</head>
+<body>
+<main>
+    <h1>NES sprite maker</h1>
+    <form>
+        <label><input type="radio" name="palette"> Palette</label>
+        <label><input type="radio" name="palette"> Palette</label>
+    </form>
+    <div id="app"></div>
+
+    <div class="sprite">
+        <div class="sprite__inner">
+            <svg width="16" height="16" class="nes-sprite">
+                <rect width="1" height="1" x="1" y="1" fill="var(--c1)"/>
+            </svg>
+        </div>
+    </div>
+
+    <div id="info"></div>
+</main>
+</body>
+</html>
