@@ -1,0 +1,9 @@
+/**
+ * active-color bem module
+ */
+
+.active-color {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap);
+}
