@@ -1,0 +1,25 @@
+/**
+ * tabs bem module
+ */
+
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 var(--gap);
+
+    &__title {
+        order: -1;
+    }
+
+    &__content {
+        flex: 0 0 100%;
+    }
+
+    &__content {
+        display: none;
+    }
+
+    &__title:has(button.outline) + &__content {
+        display: block;
+    }
+}

@@ -14,7 +14,7 @@
 
     &:has(:checked) {
         outline: .6rem solid var(--pico-primary-focus);
-        outline-offset: -.6rem
+        outline-offset: -.3rem
     }
 
     &__inner {

@@ -10,10 +10,10 @@ class NesSpriteMaker {
                 return `<label class="color-label" style="--c: ${c}"><input type="radio" name="c${i}"><span class="color-label__inner">${c}</span></label>`;
             }).join('');
 
-            html += `<div class="palette-picker__color">${labels}</div>`
+            html += `<h2 class="tabs__title"><button type="button">Color ${i}</button></h2><div class="tabs__content"><div class="color-palette">${labels}</div></div>`
         }
 
-        this.form.innerHTML = `<div class="palette-picker">${html}</div>`;
+        this.form.innerHTML = `<div class="tabs">${html}</div>`;
 
         el.appendChild(this.form);
     }
