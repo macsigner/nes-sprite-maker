@@ -11,9 +11,17 @@ class NesSpriteMaker {
 
         this.form.innerHTML = `
             <details>
-                <summary class="button">Colors</summary>
+                <summary class="summary">Colors 
+                    <span class="summary__c1"></span>
+                    <span class="summary__c2"></span>
+                    <span class="summary__c3"></span>
+                    <span class="summary__c4"></span>
+                </summary>
                 ${html}
             </details>
+            <fieldset>
+                <label><span class="summary summary--size">Size</span> <input type="number" value="16"></label>
+            </fieldset>
             <fieldset class="active-color">
                 <legend class="active-color__title">Active Color</legend>
                 ${this._getActiveColorSelectionMarkup()}
@@ -56,7 +64,7 @@ class NesSpriteMaker {
             return `
                 <div>
                     <label class="color-label" style="--c: var(--c${i + 1})">
-                        <input type="radio" name="currentColor[]" value="c${i + 1}">
+                        <input type="radio" name="current-color" value="c${i + 1}">
                         <span class="color-label__inner"></span>
                     </label>
                 </div>
