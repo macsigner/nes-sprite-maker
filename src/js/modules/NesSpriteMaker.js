@@ -11,12 +11,31 @@ class NesSpriteMaker {
 
         this.form.innerHTML = `
             <details>
-                <summary class="button">Colors</summary>
+                <summary>Colors</summary>
                 ${html}
             </details>
+            <details>
+                <summary>Sizes</summary>
+                <fieldset class="cols cols--2">
+                    <label>
+                        sprite size
+                        <input type="number" min="1" max="64" name="size" value="16">
+                    </label>
+                    <label class="cols__new-line">
+                        horizontal block size
+                        <input type="number" min="1" max="4" name="x-size" value="1">
+                    </label>
+                    <label>
+                        verticlal block size
+                        <input type="number" min="1" max="4" name="y-size" value="1">
+                    </label>
+                </fieldset>
+            </details>
+            <hr>
             <fieldset class="active-color">
                 <legend class="active-color__title">Active Color</legend>
                 ${this._getActiveColorSelectionMarkup()}
+                <div><button type="submit" class="remove-margin-bottom">Save current scheme</button></div>
             </fieldset>
         `;
 

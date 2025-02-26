@@ -3,6 +3,8 @@
  */
 
 @use 'base';
+@use 'modules/helper';
+@use 'modules/cols';
 @use 'modules/palette_picker';
 @use 'modules/sprite';
 @use 'modules/color_label';

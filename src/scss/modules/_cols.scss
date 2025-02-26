@@ -1,0 +1,21 @@
+/**
+ * cols bem module
+ */
+
+.cols {
+    --cols: 12;
+
+    display: grid;
+    grid-gap: var(--gap);
+    grid-template-columns: repeat(var(--cols), minmax(10px, 1fr));
+
+    @for $i from 1 through 12 {
+        &--#{$i} {
+            --cols: #{$i};
+        }
+    }
+
+    &__new-line {
+        grid-column-start: 1;
+    }
+}
