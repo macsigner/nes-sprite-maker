@@ -1,7 +1,10 @@
 /**
  * main import file.
  */
-
+@use "@picocss/pico/scss/pico" with (
+    $enable-classes: true,
+    $theme-color: "slate",
+);
 @use 'base';
 @use 'modules/helper';
 @use 'modules/cols';
