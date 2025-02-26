@@ -75,7 +75,7 @@ class NesSpriteMaker {
             return `
                 <div>
                     <label class="color-label" style="--c: var(--c${i + 1})">
-                        <input type="radio" name="currentColor[]" value="c${i + 1}">
+                        <input type="radio" name="current-color" value="c${i + 1}">
                         <span class="color-label__inner"></span>
                     </label>
                 </div>

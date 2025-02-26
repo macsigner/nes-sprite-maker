@@ -1,0 +1,35 @@
+/**
+ * summary bem module
+ */
+
+.summary {
+    &__c1,
+    &__c2,
+    &__c3,
+    &__c4 {
+        display: inline-block;
+        width: 3rem;
+        aspect-ratio: 1;
+        vertical-align: middle;
+    }
+
+    &__c1 {
+        background-color: var(--c1);
+    }
+
+    &__c2 {
+        background-color: var(--c2);
+    }
+
+    &__c3 {
+        background-color: var(--c3);
+    }
+
+    &__c4 {
+        background-color: var(--c4);
+    }
+
+    &--size::after {
+        content: var(--size, 16) 'x' var(--size, 16);
+    }
+}
