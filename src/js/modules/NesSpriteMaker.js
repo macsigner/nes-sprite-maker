@@ -1,7 +1,14 @@
 import * as nesColorPalette from '../../data/nes_color_palette.json';
 import ConfigForm from './ConfigForm.js';
 
+/**
+ * Sprite maker app.
+ */
 class NesSpriteMaker {
+    /**
+     * Construct the app.
+     * @param {HTMLElement} el
+     */
     constructor(el) {
         this.el = el;
         this.configForm = new ConfigForm();

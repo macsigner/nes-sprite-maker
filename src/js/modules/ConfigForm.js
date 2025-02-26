@@ -1,16 +1,19 @@
 import * as nesColorPalette from '../../data/nes_color_palette.json';
 
+/**
+ * Configuration form for sprite maker.
+ */
 class ConfigForm {
+    /**
+     * Cosntruct.
+     */
     constructor() {
         this.form = document.createElement('form');
-        let html = '';
-
-        html += this._getColors();
 
         this.form.innerHTML = `
             <details>
                 <summary>Colors</summary>
-                ${html}
+                ${this._getColorsMarkup()}
             </details>
             <details>
                 <summary>Sizes</summary>
@@ -38,7 +41,12 @@ class ConfigForm {
         `;
     }
 
-    _getColors() {
+    /**
+     * Get markup of available colors.
+     * @returns {string}
+     * @private
+     */
+    _getColorsMarkup() {
         let html = '';
 
         for (let i = 1; i <= 4; i++) {
@@ -57,6 +65,11 @@ class ConfigForm {
         return `<div class="tabs">${html}</div>`;
     }
 
+    /**
+     * Get markup of active color info.
+     * @returns {string}
+     * @private
+     */
     _getActiveColorSelectionMarkup() {
         return Array.from(Array(4).keys()).map(i => {
             return `
