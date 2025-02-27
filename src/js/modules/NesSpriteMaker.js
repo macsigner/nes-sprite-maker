@@ -19,6 +19,7 @@ class NesSpriteMaker {
 
             for (let entry of formData.entries()) {
                 this.el.style.setProperty(`--${entry[0]}`, entry[1].toString());
+                this.el.style.setProperty(`--${entry[0]}-text`, JSON.stringify(entry[1] + ''));
             }
         });
 

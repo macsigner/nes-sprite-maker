@@ -7,4 +7,13 @@
     flex-wrap: wrap;
     align-items: center;
     gap: var(--gap);
+
+    &__title::after {
+        // Use custom properties with strings
+        // https://stackoverflow.com/a/64338767
+        content: 'Sprite size: ' var(--size-text)  ' / Sprites: ' var(--x-size-text) 'x' var(--y-size-text);
+        margin-left: .8em;
+        font-size: .7em;
+        font-style: italic;
+    }
 }
