@@ -14,16 +14,24 @@ class NesSpriteMaker {
         this.configForm = new ConfigForm();
 
         this.configForm.form.addEventListener('submit', e => e.preventDefault());
-        this.configForm.form.addEventListener('input', e => {
-            const formData = new FormData(e.target.form);
+        this.configForm.form.addEventListener('input', e => this._updateVars());
 
-            for (let entry of formData.entries()) {
-                this.el.style.setProperty(`--${entry[0]}`, entry[1].toString());
-                this.el.style.setProperty(`--${entry[0]}-text`, JSON.stringify(entry[1] + ''));
-            }
-        });
+        this._updateVars();
 
         el.appendChild(this.configForm.form);
+    }
+
+    /**
+     * Update cusotm properties according to form values.
+     * @private
+     */
+    _updateVars() {
+        const formData = new FormData(this.configForm.form);
+
+        for (let entry of formData.entries()) {
+            this.el.style.setProperty(`--${entry[0]}`, entry[1].toString());
+            this.el.style.setProperty(`--${entry[0]}-text`, JSON.stringify(entry[1] + ''));
+        }
     }
 }
 

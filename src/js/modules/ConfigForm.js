@@ -39,6 +39,56 @@ class ConfigForm {
                 <div><button type="submit" class="remove-margin-bottom">Save current scheme</button></div>
             </fieldset>
         `;
+
+        this.form.addEventListener('input', e => this.saveCurrentState());
+
+        this.loadLocal();
+    }
+
+    /**
+     * Save current state to local storage.
+     */
+    saveCurrentState() {
+        const formData = new FormData(this.form);
+
+        const config = Array.from(formData.keys()).reduce((a, key) => {
+            let value = formData.getAll(key);
+            value = value.length === 1 ? value[0] : value;
+            a[key] = value;
+
+            return a;
+        }, {});
+
+        localStorage.setItem('configForm', JSON.stringify(config));
+    }
+
+    /**
+     * Load current state from local storage if set.
+     */
+    loadLocal() {
+        const config = JSON.parse(localStorage.getItem('configForm'));
+        if (!config) {
+            return;
+        }
+
+        Object.keys(config).forEach(key => {
+            this.form.querySelectorAll(`[name="${key}"]`).forEach(input => {
+                switch (input.type) {
+                    case 'radio':
+                        input.checked = input.value === config[key];
+                        break;
+                    case 'checkbox':
+                        input.checked = config[key] === input.value
+                            || (
+                                typeof config[key] === 'object'
+                                && config[key].includes(input.value)
+                            );
+                        break;
+                    default:
+                        input.value = config[key];
+                }
+            });
+        });
     }
 
     /**
