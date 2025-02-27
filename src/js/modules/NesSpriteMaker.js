@@ -1,5 +1,6 @@
 import * as nesColorPalette from '../../data/nes_color_palette.json';
 import ConfigForm from './ConfigForm.js';
+import SVGSprite from './SVGSprite.js';
 
 /**
  * Sprite maker app.
@@ -18,7 +19,10 @@ class NesSpriteMaker {
 
         this._updateVars();
 
+        const sprite = new SVGSprite();
+
         el.appendChild(this.configForm.form);
+        el.appendChild(sprite.container);
     }
 
     /**
@@ -26,11 +30,9 @@ class NesSpriteMaker {
      * @private
      */
     _updateVars() {
-        const formData = new FormData(this.configForm.form);
-
-        for (let entry of formData.entries()) {
-            this.el.style.setProperty(`--${entry[0]}`, entry[1].toString());
-            this.el.style.setProperty(`--${entry[0]}-text`, JSON.stringify(entry[1] + ''));
+        for (let [key, val] of Object.entries(this.configForm.getData())) {
+            this.el.style.setProperty(`--${key}`, val.toString());
+            this.el.style.setProperty(`--${key}-text`, JSON.stringify(val + ''));
         }
     }
 }

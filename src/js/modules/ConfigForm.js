@@ -4,13 +4,14 @@ import * as nesColorPalette from '../../data/nes_color_palette.json';
  * Configuration form for sprite maker.
  */
 class ConfigForm {
+    #form;
     /**
      * Cosntruct.
      */
     constructor() {
-        this.form = document.createElement('form');
+        this.#form = document.createElement('form');
 
-        this.form.innerHTML = `
+        this.#form.innerHTML = `
             <details>
                 <summary>Colors</summary>
                 ${this._getColorsMarkup()}
@@ -40,26 +41,20 @@ class ConfigForm {
             </fieldset>
         `;
 
-        this.form.addEventListener('input', e => this.saveCurrentState());
+        this.#form.addEventListener('input', e => this.saveCurrentState());
 
         this.loadLocal();
+    }
+
+    get form() {
+        return this.#form;
     }
 
     /**
      * Save current state to local storage.
      */
     saveCurrentState() {
-        const formData = new FormData(this.form);
-
-        const config = Array.from(formData.keys()).reduce((a, key) => {
-            let value = formData.getAll(key);
-            value = value.length === 1 ? value[0] : value;
-            a[key] = value;
-
-            return a;
-        }, {});
-
-        localStorage.setItem('configForm', JSON.stringify(config));
+        localStorage.setItem('configForm', JSON.stringify(this.getData()));
     }
 
     /**
@@ -72,7 +67,7 @@ class ConfigForm {
         }
 
         Object.keys(config).forEach(key => {
-            this.form.querySelectorAll(`[name="${key}"]`).forEach(input => {
+            this.#form.querySelectorAll(`[name="${key}"]`).forEach(input => {
                 switch (input.type) {
                     case 'radio':
                         input.checked = input.value === config[key];
@@ -89,6 +84,18 @@ class ConfigForm {
                 }
             });
         });
+    }
+
+    getData() {
+        const formData = new FormData(this.#form);
+
+        return Array.from(formData.keys()).reduce((a, key) => {
+            let value = formData.getAll(key);
+            value = value.length === 1 ? value[0] : value;
+            a[key] = value;
+
+            return a;
+        }, {});
     }
 
     /**
